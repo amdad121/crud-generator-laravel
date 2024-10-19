@@ -1,5 +1,10 @@
 # CRUD Generator for Laravel
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/amdadulhaq/crud-generator-laravel.svg?style=flat-square)](https://packagist.org/packages/amdadulhaq/crud-generator-laravel)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/amdadulhaq/crud-generator-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/amdad121/crud-generator-laravel/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/amdad121/crud-generator-laravel/lint.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/amdad121/crud-generator-laravel/actions?query=workflow%3A"Fix+Code+Style"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/amdadulhaq/crud-generator-laravel.svg?style=flat-square)](https://packagist.org/packages/amdadulhaq/crud-generator-laravel)
+
 ## Overview
 
 The **CRUD Generator** package for Laravel is a command-line tool that helps you quickly create a complete CRUD (Create, Read, Update, Delete) setup for your models, including migration files, controllers, and Blade views. This package streamlines the development process by generating the necessary files with minimal input from the developer.
@@ -22,7 +27,7 @@ The **CRUD Generator** package for Laravel is a command-line tool that helps you
 1. **Install the package via Composer**:
 
     ```bash
-    composer require amdadulhaq/crud-generator
+    composer require amdadulhaq/crud-generator-laravel
     ```
 
 2. **Register the Service Provider (if not using auto-discovery)**:
