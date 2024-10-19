@@ -1,0 +1,15 @@
+@extends('layouts.app')
+
+@section('content')
+<h1>Create {{ ucfirst($name) }}</h1>
+<form action="{{ route('{{ plural_studly_case($name) }}.store') }}" method="POST">
+    @csrf
+    @foreach ($fields as $field)
+        <div class="form-group">
+            <label for="{{ $field['name'] }}">{{ ucfirst($field['name']) }}</label>
+            <input type="text" class="form-control" name="{{ $field['name'] }}" id="{{ $field['name'] }}">
+        </div>
+    @endforeach
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+@endsection

@@ -1,0 +1,16 @@
+@extends('layouts.app')
+
+@section('content')
+<h1>Edit {{ ucfirst($name) }}</h1>
+<form action="{{ route('{{ plural_studly_case($name) }}.update', $item->id) }}" method="POST">
+    @csrf
+    @method('PUT')
+    @foreach ($fields as $field)
+        <div class="form-group">
+            <label for="{{ $field['name'] }}">{{ ucfirst($field['name']) }}</label>
+            <input type="text" class="form-control" name="{{ $field['name'] }}" id="{{ $field['name'] }}" value="{{ old('{{ $field['name'] }}', $item->{{ $field['name'] }}) }}">
+        </div>
+    @endforeach
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
+@endsection

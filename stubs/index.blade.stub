@@ -1,0 +1,36 @@
+@extends('layouts.app')
+
+@section('content')
+<h1>{{ ucfirst($name) }} List</h1>
+<a href="{{ route('{{ plural_studly_case($name) }}.create') }}" class="btn btn-primary mb-3">Create New {{ ucfirst($name) }}</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            @foreach ($fields as $field)
+                <th>{{ ucfirst($field['name']) }}</th>
+            @endforeach
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($items as $item)
+        <tr>
+            <td>{{ $item->id }}</td>
+            @foreach ($fields as $field)
+                <td>{{ $item->{$field['name']} }}</td>
+            @endforeach
+            <td>
+                <a href="{{ route('{{ plural_studly_case($name) }}.show', $item->id) }}" class="btn btn-info">Show</a>
+                <a href="{{ route('{{ plural_studly_case($name) }}.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                <form action="{{ route('{{ plural_studly_case($name) }}.destroy', $item->id) }}" method="POST" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+@endsection
