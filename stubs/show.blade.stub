@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ ucfirst($name) }} Details</h1>
+<h1>{{ Name }} Details</h1>
 <div class="card">
     <div class="card-body">
         @foreach ($item->getAttributes() as $key => $value)
@@ -16,7 +16,7 @@
                 </div>
             @endif
         @endforeach
-        <a href="{{ route('{{ plural_studly_case($name) }}.index') }}" class="btn btn-primary mt-3">Back to List</a>
+        <a href="{{ route('{{ plural_route_name }}.index') }}" class="btn btn-primary mt-3">Back to List</a>
     </div>
 </div>
 @endsection

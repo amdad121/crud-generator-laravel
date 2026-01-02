@@ -9,19 +9,42 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.2|^8.3|^8.4|^8.5",
         "illuminate/console": "^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.14"
+        "driftingly/rector-laravel": "^1.0|^2.0",
+        "larastan/larastan": "^2.0|^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.0|^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
             "AmdadulHaq\\CRUDGenerator\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AmdadulHaq\\CRUDGenerator\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
-        "lint": "vendor/bin/pint"
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "refactor": "vendor/bin/rector process",
+        "refactor:check": "vendor/bin/rector process --dry-run",
+        "lint": "vendor/bin/pint",
+        "lint:check": "vendor/bin/pint --test"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "optimize-autoloader": true
     },
     "extra": {
         "laravel": {

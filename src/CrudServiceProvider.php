@@ -1,27 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AmdadulHaq\CRUDGenerator;
 
+use AmdadulHaq\CRUDGenerator\Commands\MakeCrud;
 use Illuminate\Support\ServiceProvider;
 
 class CrudServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         // Load package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/crud_generator.php', 'crud_generator');
 
         // Register commands
         $this->commands([
-            Commands\MakeCrud::class,
+            MakeCrud::class,
         ]);
     }
 
-    public function boot()
+    public function boot(): void
     {
-        // Optionally publish config files, views, etc.
         $this->publishes([
-            __DIR__.'/config/config.php' => config_path('crud_generator.php'),
-        ]);
+            __DIR__.'/../config/crud_generator.php' => config_path('crud_generator.php'),
+        ], 'config');
     }
 }
