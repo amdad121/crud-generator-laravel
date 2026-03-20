@@ -20,7 +20,7 @@ The **CRUD Generator** package for Laravel is a command-line tool that helps you
 ## Requirements
 
 -   PHP >= 8.2
--   Laravel >= 10.x
+-   Laravel >= 10.x, 11.x, 12.x, 13.x
 
 ## Installation
 
